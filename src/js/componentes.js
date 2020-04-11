@@ -1,10 +1,10 @@
 import '../css/componentes.css';
 
 export const saludar = ( nombre ) => {
-    console.log('creando etiqueda H1, prueba de modificacion');
+    console.log('Punto cero de proyecto inicializado ');
 
     const h1 = document.createElement('h1');
-    h1.innerText = `Hola, ${ nombre }, que onda gatin!!`;
+    h1.innerText = `Webpack Starter de ${ nombre }`;
     document.body.append( h1 );
 
 }

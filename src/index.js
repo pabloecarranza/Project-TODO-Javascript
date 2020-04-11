@@ -5,4 +5,4 @@ import img from './assets/webpack.jpg';
 
 const nombre = 'Pablo' ;
 
-saludar(nombre );
+saludar(nombre);
