@@ -1,8 +1,8 @@
-import { saludar } from './js/componentes';
 import './styles.css';
-import img from './assets/webpack.png';
+import {Todo, TodoList} from './classes';
+import { crearTodoHtml } from './js/componentes';
 
+export const todoList = new TodoList();
 
-const nombre = 'Pablo' ;
+todoList.todos.forEach(todo => crearTodoHtml(todo));
 
-saludar(nombre);
