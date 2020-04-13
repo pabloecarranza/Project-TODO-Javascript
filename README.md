@@ -1,6 +1,7 @@
-# Webpack Starter
+# Project TODO Javascript
 
-Este es el proyecto inicial para crear aplicaciones utilizando webpack.
+Este es proyecto de tareas "TODO" utilizando HTML, CSS & Javascript
+con un webpack Starter creado por mi.
 
 ### Notas:
 Recuerden reconstruir los módulos de Node
