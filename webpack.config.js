@@ -1,14 +1,11 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
+const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
- 
     mode: 'development',
     optimization: {
-        minimizer: [ new OptimizeCssAssetsPlugin()]
+        minimizer: [ new OptimizeCssAssetsPlugin() ]
     },
     module: {
         rules: [
@@ -25,14 +22,16 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader'
-                ] 
+                ]
             },
             {
-                test: /\.html$/i,
-                loader: 'html-loader',
-                options: {
-                    attributes: false,
-                },
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: { minimize: false }
+                    }
+                ]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -40,7 +39,8 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            esModule: false
+                            esModule: false,
+                            name: 'assets/[name].[ext]'
                         }
                     }
                 ]
@@ -55,13 +55,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             ignoreOrder: false
-        }),
-
-        new CopyPlugin([
-            {from: 'src/assets', to: 'assets/'}
-        ]),
-        new CleanWebpackPlugin()
+        })
     ]
- 
-    
+
 }
+
